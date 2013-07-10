@@ -10,7 +10,7 @@
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--12                                       // RxVOL_Gain
+-9                                       // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -58,7 +58,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--8                                       // RxVOL_Gain
+-5                                       // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -106,7 +106,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--4                                        // RxVOL_Gain
+-1                                        // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -153,7 +153,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-0                                        // RxVOL_Gain
+3                                        // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -200,7 +200,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-4                                         // RxVOL_Gain
+7                                         // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -247,7 +247,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-8                                         // RxVOL_Gain
+11                                         // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode

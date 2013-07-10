@@ -3726,11 +3726,49 @@ $"[S5K4ECGX] REG_ETC"
 0F12 0170 $f ///*bp_uMaxBrightnessFactor*/
 002A 1482 $f
 0F12 01E0 $f ///*bp_uMinBrightnessFactor	*/
-
 ;
 
+READ_VENDOR_ID =
+$"[S5K4ECGX] >> READ_VENDOR_ID"
+FCFC D000 $f // Being converted I2C sequence has to be started with a line
+0028 D000 $f
+002A 0012 $f
+0F12 0001 $f // S/W core reset
 
+002A 007A $f
+0F12 0000 $f // clock enable to control block
 
+002A 0078 $f
+0F12 1BF2 $f // set for EXTCLK 24, 20 MHz (this part is unnecessary for @ 27 MHz)
+
+002A A000 $f
+0F12 0004 $f // make initial state
+
+002A A002 $f
+0F12 0006 $f // set the page 6 (USER) of OTP
+
+002A A000 $f
+0F12 0001 $f // set read mode
+
+$d0001       // 1ms delay
+
+002C D000 $f
+002E A006 $f
+0F12 $r2 1 0 $f // Get vendor ID
+
+002E A007 $f
+0F12 $r2 3 2 $f // Get vendor ID
+
+0028 D000 $f
+002A A000 $f
+0F12 0004 $f // make initial state
+
+002A A000 $f
+0F12 0000 $f // interface off
+
+$"[S5K4ECGX] Vendor ID : byte 3 %3, byte 2 %2  byte 1 %1, byte 0 %0"
+$"[S5K4ECGX] << READ_VENDOR_ID"
+;
 
 REG_MAIN_INIT =
 $"[S5K4ECGX] >> REG_MAIN_INIT"
@@ -3750,7 +3788,6 @@ $"[S5K4ECGX] >> REG_MAIN_INIT"
 #REG_GAMMA
 #REG_AFIT
 #REG_ETC
-
 ;
 
 //=========================================================
@@ -4785,8 +4822,8 @@ FCFC D000 $f
 002A 02BE $f
 0F12 0000   	//REG_0TC_PCFG_usFrTimeType
      0001   	//REG_0TC_PCFG_FrRateQualityType
-     014A   	//REG_0TC_PCFG_usMaxFrTimeMsecMult10 //014Ah:30fps
-     014A $f	//REG_0TC_PCFG_usMinFrTimeMsecMult10 //014Ah:30fps
+     014D   	//REG_0TC_PCFG_usMaxFrTimeMsecMult10 //014Ah:30fps
+     014D $f	//REG_0TC_PCFG_usMinFrTimeMsecMult10 //014Ah:30fps
 
 002A 0266 $f
 0F12 0000 $f	//REG_TC_GP_ActivePrevConfig
@@ -5926,7 +5963,6 @@ $"[S5K4ECGX] << seq_vf_start"
 
 seq_vf_stop =
 $"[S5K4ECGX] >> seq_vf_stop"
-
 $"[S5K4ECGX] << seq_vf_stop"
 ;
 
@@ -5965,7 +6001,26 @@ $s5 01
 $"[S5K4ECGX] << seq_vf_return"
 ;
 
-
+PREVIEW_UPDATE =
+$"[S5K4ECGX] >> PREVIEW_UPDATE"
+002A 0266 $f
+0F12 0000 $f	//	#REG_TC_GP_ActivePrevConfig    	//
+002A 026A $f
+0F12 0001 $f	//	#REG_TC_GP_PrevOpenAfterChange 	//
+002A 024E $f
+0F12 0001 $f	//	#REG_TC_GP_NewConfigSync       	//
+002A 0268 $f
+0F12 0001 $f	//	#REG_TC_GP_PrevConfigChanged   	//
+002A 0270 $f
+0F12 0001 $f	//	#REG_TC_GP_CapConfigChanged    	//
+002A 023E $f
+0F12 0001 	    //	#REG_TC_GP_EnablePreview       	//
+     0001 $f	//	#REG_TC_GP_EnablePreviewChanged	//
+$d0096
+$s5 01
+[5 50 #PREVIEW_MODE_CHECK]
+$"[S5K4ECGX] << PREVIEW_UPDATE"
+;
 
 //=========================================================
 // SnapShot Configuration
@@ -6002,6 +6057,8 @@ $"[S5K4ECGX] seq_ss_config_1, 640 * 480"
 0F12 0001 $f	//REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f	//REG_TC_GP_CapConfigChanged
+
+#CAPTURE_MODE_CHECK
 ;
 
 
@@ -6037,6 +6094,8 @@ FCFC D000 $f
 0F12 0001 $f	//REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f	//REG_TC_GP_CapConfigChanged
+
+#CAPTURE_MODE_CHECK
 ;
 
 seq_ss_config_3 =
@@ -6071,6 +6130,8 @@ FCFC D000 $f
 0F12 0001 $f	//REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f	//REG_TC_GP_CapConfigChanged
+
+#CAPTURE_MODE_CHECK
 ;
 
 seq_ss_config_4 =
@@ -6105,6 +6166,8 @@ FCFC D000 $f
 0F12 0001 $f	//REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f	//REG_TC_GP_CapConfigChanged
+
+#CAPTURE_MODE_CHECK
 ;
 
 seq_ss_config_5 =
@@ -6138,11 +6201,13 @@ $"[S5K4ECGX] seq_ss_config_5, 2560x1920 5M"
 0F12 0001 $f	//REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f	//REG_TC_GP_CapConfigChanged
+
+#CAPTURE_MODE_CHECK
 ;
 
 
 seq_ss_config_14 =
-    $"[S5K4ECGX] >> seq_ss_config_14, 960x720"
+$"[S5K4ECGX] >> seq_ss_config_14, 960x720"
 FCFC D000 $f
 0028 7000 $f
 002A 0258 $f
@@ -6173,7 +6238,9 @@ FCFC D000 $f
 0F12 0001 $f //REG_TC_GP_NewConfigSync
 002A 0270 $f
 0F12 0001 $f //REG_TC_GP_CapConfigChanged
-    $"[S5K4ECGX] << seq_ss_config_14, 960x720"
+
+#CAPTURE_MODE_CHECK
+$"[S5K4ECGX] << seq_ss_config_14, 960x720"
 ;
  
  
@@ -6190,22 +6257,22 @@ $"[S5K4ECGX] << JPEG_STATUS_CHECK"
 
 seq_ss_start =
 $"[S5K4ECGX] >> seq_ss_start"
-$ce.00 1  //if flash on status
-//#REG_PRE_FLASH_OFF
-$gf 00 //flash off
+$ce.00 1 // If flash on status
+//#REG_PRE_FLASH_OFF // NOT use this because of white screen issue
+$gf 00 // Flash OFF
 $d0064
 
-//#REG_AF_LOCK_OFF
+// #REG_AF_LOCK_OFF
 $ce.05 1
 $"[S5K4ECGX] The status of touch AF is 1"
 $cl
-$se.03 0   //set lock off status
+$se.03 0 // Set lock off status
 #REG_AE_UNLOCK
 $cx
-$ce.00 0        // If flash off status
+$ce.00 0 // If flash off status
 #REG_AWB_UNLOCK
 $cx
-$gf 10 //flash on brigthness 16
+$gf 10 // Flash on brigthness 16
 #REG_MAIN_FLASH_ON
 $d00C8
 $cx
@@ -6580,7 +6647,7 @@ $cx
 ;
 
 REG_SCENE_NONE =
-   $"[S5K4ECGX_LITEON] >> REG_SCENE_NONE"
+$"[S5K4ECGX] >> REG_SCENE_NONE"
 
 ///*scene Backlight landscape*/
 0028 7000 $f
@@ -6736,15 +6803,14 @@ REG_SCENE_NONE =
      00AA 
      00B0 $f
 $sf 00 
-   $"[S5K4ECGX_LITEON] << REG_SCENE_NONE"
+$"[S5K4ECGX] << REG_SCENE_NONE"
 ;
 
 seq_set_prop_15_0 =
-   $"[S5K4ECGX_LITEON] >> Scene None"
-
+$"[S5K4ECGX] >> Scene None"
 #REG_SCENE_NONE
-
-   $"[S5K4ECGX_LITEON] << Scene None"
+#PREVIEW_UPDATE // Preview Update
+$"[S5K4ECGX] << Scene None"
 ;
 
 
@@ -6752,6 +6818,7 @@ seq_set_prop_15_1 =
    $"[S5K4ECGX_LITEON] >> Scene Portrait"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
@@ -6766,6 +6833,8 @@ FCFC D000 $f
 002A 0D00 $f
 0F12 4020 $f
 $sf 01
+
+
    $"[S5K4ECGX_LITEON] << Scene Portrait"
    
 ;
@@ -6774,6 +6843,7 @@ seq_set_prop_15_2 =
    $"[S5K4ECGX_LITEON] >> Scene Landscape"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
@@ -6825,6 +6895,8 @@ FCFC D000 $f
 002A 0234 $f
 0F12 0030 $f	//REG_TC_UserSaturation
 $sf 02
+
+
    $"[S5K4ECGX_LITEON] << Scene Landscape"
 ;
 
@@ -6832,6 +6904,7 @@ seq_set_prop_15_3 =
    $"[S5K4ECGX_LITEON] >> Scene Night"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
@@ -6898,6 +6971,8 @@ FCFC D000 $f
 0F12 0001 		///*REG_TC_GP_EnablePreview */
      0001 $f		///*REG_TC_GP_EnablePreviewChanged */
 $sf 03	 
+
+
    $"[S5K4ECGX_LITEON] << Scene Night"
 ;
 
@@ -6905,43 +6980,10 @@ seq_set_prop_15_4 =
    $"[S5K4ECGX_LITEON] >> Scene Backlight"
 
 #REG_SCENE_NONE
-
-FCFC D000  $f
-0028 7000  $f
-002A 1492  $f
-0F12 0000    	//ae_WeightTbl_16
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0101
-     0101
-     0000
-     0000
-     0F01
-     010F
-     0000
-     0000
-     0F01
-     010F
-     0000
-     0000
-     0101
-     0101
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000
-     0000  $f
+#PREVIEW_UPDATE // Preview Update
 $sf 04	 
+
+
    $"[S5K4ECGX_LITEON] << Scene Backlight"
 ;
 
@@ -6949,6 +6991,7 @@ seq_set_prop_15_5 =
    $"[S5K4ECGX_LITEON] >> Scene Sports"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 FCFC D000 $f
 0028 7000 $f
 		///*AE_state*/
@@ -7002,6 +7045,8 @@ FCFC D000 $f
 0F12 0001 		///*REG_TC_GP_EnablePreview */
      0001 $f		///*REG_TC_GP_EnablePreviewChanged */
 $sf 05
+
+
    $"[S5K4ECGX_LITEON] << Scene Sports"
 ;
 
@@ -7009,6 +7054,7 @@ seq_set_prop_15_6 =
    $"[S5K4ECGX_LITEON] >> Scene Beach/Snow"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 #AFLCKER_OFF
 
 FCFC D000 $f
@@ -7035,6 +7081,8 @@ FCFC D000 $f
 002A 0234 $f
 0F12 0030 $f		///*REG_TC_UserSaturation */
 $sf 06
+
+
    $"[S5K4ECGX_LITEON] << Scene Beach/Snow"
 ;
 
@@ -7042,6 +7090,7 @@ seq_set_prop_15_8 =
    $"[S5K4ECGX_LITEON] >> Scene Party/Indoor"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 #AFLCKER_OFF
 
 FCFC D000 $f
@@ -7065,6 +7114,8 @@ FCFC D000 $f
 002A 0234 $f
 0F12 0030 $f		///*REG_TC_UserSaturation */
 $sf 08
+
+
    $"[S5K4ECGX_LITEON] << Scene Party/Indoor"
 ;
 
@@ -7072,6 +7123,7 @@ seq_set_prop_15_a =
    $"[S5K4ECGX_LITEON] >> Scene duskdawn"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 #AWB_OFF
 
 FCFC D000 $f
@@ -7089,6 +7141,8 @@ FCFC D000 $f
 002A 04C6 $f
 0F12 0001 $f		///*REG_SF_USER_RGBGainChanged */
 $sf 0a
+
+
    $"[S5K4ECGX_LITEON] << Scene duskdawn"
 ;
 
@@ -7096,6 +7150,7 @@ seq_set_prop_15_b =
    $"[S5K4ECGX_LITEON] >> Scene Sunset"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 #AWB_OFF
 
 FCFC D000 $f
@@ -7113,6 +7168,8 @@ FCFC D000 $f
 002A 04C6 $f
 0F12 0001 $f		///*REG_SF_USER_RGBGainChanged */
 $sf 0b
+
+
    $"[S5K4ECGX_LITEON] << Scene Sunset"
 ;
 
@@ -7120,12 +7177,15 @@ seq_set_prop_15_c =
    $"[S5K4ECGX_LITEON] >> Scene fall color"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
 002A 0234 $f
 0F12 0060 $f
 $sf 0c
+
+
    $"[S5K4ECGX_LITEON] << Scene fall color"
 ;
 
@@ -7133,6 +7193,7 @@ seq_set_prop_15_d =
    $"[S5K4ECGX_LITEON] >> Scene firework"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
@@ -7189,6 +7250,8 @@ FCFC D000 $f
 0F12 0001 		///*REG_TC_GP_EnablePreview */
      0001 $f	//	/*REG_TC_GP_EnablePreviewChanged */
 $sf 0d
+
+
    $"[S5K4ECGX_LITEON] << Scene Firework"
 ;
 
@@ -7196,6 +7259,7 @@ seq_set_prop_15_e =
    $"[S5K4ECGX_LITEON] >> Scene Candle light"
 
 #REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 #AWB_OFF
 
 FCFC D000 $f
@@ -7213,13 +7277,16 @@ FCFC D000 $f
 002A 04C6 $f
 0F12 0001 $f		///*REG_SF_USER_RGBGainChanged */
 $sf 0e
+
+
    $"[S5K4ECGX_LITEON] << Scene Candle light"
 ;
 
 seq_set_prop_15_f =
    $"[S5K4ECGX_LITEON] >> Scene Candle Text"
 
-   #REG_SCENE_NONE
+#REG_SCENE_NONE
+#PREVIEW_UPDATE // Preview Update
 
 FCFC D000 $f
 0028 7000 $f
@@ -7236,7 +7303,7 @@ FCFC D000 $f
 002A 0D00 $f
 0F12 A060 $f	//_ee_iLowSharpPower   [7:0] AFIT8_ee_iHighSharpPower
 $sf 0f   
-   $"[S5K4ECGX_LITEON] << Scene Candle Text"
+$"[S5K4ECGX] << Scene Candle Text"
 ;
 
 seq_set_prop_17_0 =
@@ -7419,6 +7486,8 @@ FCFC D000 $f
 
 002A 0268 $f   //REG_TC_GP_PrevConfigChanged
 0F12 0001 $f
+
+#PREVIEW_MODE_CHECK
 $"[S5K4ECGX] << Metering Center-weighted"
 $cx
 ;
@@ -7464,6 +7533,8 @@ FCFC D000 $f
 
 002A 0268 $f   //REG_TC_GP_PrevConfigChanged
 0F12 0001 $f
+
+#PREVIEW_MODE_CHECK
 $"[S5K4ECGX] << Metering Spot"
 $cx
 ;
@@ -7509,6 +7580,9 @@ FCFC D000 $f
 
 002A 0268 $f   //REG_TC_GP_PrevConfigChanged
 0F12 0001 $f
+
+#PREVIEW_MODE_CHECK
+$"[S5K4ECGX] << Metering Matrix"
 $cx
 ;
 
@@ -7571,6 +7645,10 @@ FCFC D000 $f
 $"seq_af_status_1  byte 1 %1, byte 0 %0"
 ;
 
+seq_get_prop_2c =
+$"[S5K4ECGX] >> seq_get_vendor_id"
+#READ_VENDOR_ID
+;
 
 seq_set_prop_1e_0 =
 $"[S5K4ECGX] >> set ae normal speed"

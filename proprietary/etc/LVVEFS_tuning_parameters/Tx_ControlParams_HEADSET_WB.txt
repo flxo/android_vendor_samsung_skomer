@@ -10,7 +10,7 @@ LVM_MODE_OFF                                // TxMute
 LVM_MODE_ON                                // TxBD_OperatingMode
 10                                          // TxBulkDelay
 LVM_MODE_ON                                 // TxVOL_OperatingMode
-10                                           // TxVOL_Gain
+12                                           // TxVOL_Gain
 LVM_MODE_ON                                 // TxHPF_OperatingMode
 200                                       // TxHPF_CornerFreq
 LVM_MODE_ON                                 // TxHF_ControlParams_OperatingMode

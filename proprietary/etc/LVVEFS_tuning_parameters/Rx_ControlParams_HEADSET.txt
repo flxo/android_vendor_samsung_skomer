@@ -10,7 +10,7 @@
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--12                                       // RxVOL_Gain
+-8                                       // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -58,7 +58,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--8                                       // RxVOL_Gain
+-4                                       // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -106,7 +106,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
--4                                       // RxVOL_Gain
+0                                       // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -153,7 +153,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-0                                         // RxVOL_Gain
+4                                         // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -200,7 +200,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-4                                         // RxVOL_Gain
+8                                         // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -247,7 +247,7 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 LVVE_RX_MODE_ON                           // RxOperatingMode
 LVM_MODE_OFF                              // RxMute
 LVM_MODE_ON                               // RxVOL_OperatingMode
-8                                         // RxVOL_Gain
+13                                         // RxVOL_Gain
 LVM_MODE_ON                               // RxFENS_ControlParams_OperatingMode
 8230                                      // RxFENS_ControlParams_FENS_limit_NS
 0                                         // RxFENS_ControlParams_Mode
@@ -291,40 +291,40 @@ LVM_MODE_ON                               // RxHPF_ControlParams_OperatingMode
 200                                       // RxHPF_ControlParams_CornerFreq
 
 // COMMON EQUALIZER
-LVM_MODE_ON                               // RxEQ_OperatingMode
+LVM_MODE_OFF                               // RxEQ_OperatingMode
 32                                        // RxEQ_Length
-4341
--309
--490
-316
-151
--130
-35
-77
-15
-10
-46
-58
-31
-22
-3
--27
--19
--8
--18
--9
-2
--1
--4
--1
-0
-0
-0
-0
-0
-0
-0
-0
+4096													// RxEQ_ControlParams_EQ_Coefs[0]
+0											// RxEQ_ControlParams_EQ_Coefs[1]
+0											// RxEQ_ControlParams_EQ_Coefs[2]
+0												// RxEQ_ControlParams_EQ_Coefs[3]
+0											// RxEQ_ControlParams_EQ_Coefs[4]
+0											// RxEQ_ControlParams_EQ_Coefs[5]
+0										// RxEQ_ControlParams_EQ_Coefs[6]
+0											// RxEQ_ControlParams_EQ_Coefs[7]
+0											// RxEQ_ControlParams_EQ_Coefs[8]
+0											// RxEQ_ControlParams_EQ_Coefs[9]
+0										// RxEQ_ControlParams_EQ_Coefs[10]
+0											// RxEQ_ControlParams_EQ_Coefs[11]
+0										// RxEQ_ControlParams_EQ_Coefs[12]
+0											// RxEQ_ControlParams_EQ_Coefs[13]
+0										// RxEQ_ControlParams_EQ_Coefs[14]
+0											// RxEQ_ControlParams_EQ_Coefs[15]
+0										// RxEQ_ControlParams_EQ_Coefs[16]
+0											// RxEQ_ControlParams_EQ_Coefs[17]
+0									// RxEQ_ControlParams_EQ_Coefs[18]
+0										// RxEQ_ControlParams_EQ_Coefs[19]
+0									// RxEQ_ControlParams_EQ_Coefs[20]
+0										// RxEQ_ControlParams_EQ_Coefs[21]
+0									// RxEQ_ControlParams_EQ_Coefs[22]
+0										// RxEQ_ControlParams_EQ_Coefs[23]
+0									// RxEQ_ControlParams_EQ_Coefs[24]
+0										// RxEQ_ControlParams_EQ_Coefs[25]
+0									// RxEQ_ControlParams_EQ_Coefs[26]
+0									// RxEQ_ControlParams_EQ_Coefs[27]
+0									// RxEQ_ControlParams_EQ_Coefs[28]
+0									// RxEQ_ControlParams_EQ_Coefs[29]
+0									// RxEQ_ControlParams_EQ_Coefs[30]
+0									// RxEQ_ControlParams_EQ_Coefs[31]
 0                                         // RxEQ_ControlParams_EQ_Coefs[32]
 0                                         // RxEQ_ControlParams_EQ_Coefs[33]
 0                                         // RxEQ_ControlParams_EQ_Coefs[34]
