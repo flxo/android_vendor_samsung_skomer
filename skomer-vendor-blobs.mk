@@ -46,7 +46,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lib/libasound.so:system/lib/libasound.so \
     $(LOCAL_PATH)/lib/libsamsungSoundbooster.so:system/lib/libsamsungSoundbooster.so \
     $(LOCAL_PATH)/lib/lib_SamsungRec_V01006.so:system/lib/lib_SamsungRec_V01006.so \
-    $(LOCAL_PATH)/lib/lib_Samsung_SB_AM_for_ICS_v03007.so:system/lib/lib_Samsung_SB_AM_for_ICS_v03007.so \
+    $(LOCAL_PATH)/lib/lib_Samsung_SB_AM_for_ICS_v03008.so:system/lib/lib_Samsung_SB_AM_for_ICS_v03008.so \
     $(LOCAL_PATH)/lib/libaudiopolicy_sec.so:system/lib/libaudiopolicy_sec.so \
     $(LOCAL_PATH)/lib/libcontrolcsc.so:system/lib/libcontrolcsc.so \
     $(LOCAL_PATH)/lib/libhalaudioprocessing.so:system/lib/libhalaudioprocessing.so \
