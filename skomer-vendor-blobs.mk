@@ -27,7 +27,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/usr/share/camera/config_file/sony_isx006.dat:system/usr/share/camera/config_file/sony_isx006.dat \
     $(LOCAL_PATH)/usr/share/camera/config_file/omnivision_ov5640_pri.dat:system/usr/share/camera/config_file/omnivision_ov5640_pri.dat \
     $(LOCAL_PATH)/usr/share/camera/config_file/samsung_s5k4ecgx_golden.dat:system/usr/share/camera/config_file/samsung_s5k4ecgx_golden.dat \
-    $(LOCAL_PATH)/usr/share/camera/config_file/siliconfile_sr030pc50.dat:system/usr/share/camera/config_file/siliconfile_sr030pc50.dat
+    $(LOCAL_PATH)/usr/share/camera/config_file/siliconfile_sr030pc50.dat:system/usr/share/camera/config_file/siliconfile_sr030pc50.dat \
+    $(LOCAL_PATH)/usr/share/camera/config_file/sony_isx012_skomer.dat:system/usr/share/camera/config_file/sony_isx012_skomer.dat \
+    $(LOCAL_PATH)/usr/share/camera/config_file/siliconfile_sr030pc50_skomer.dat:system/usr/share/camera/config_file/siliconfile_sr030pc50_skomer.dat
 
 # Mali-400
 PRODUCT_COPY_FILES += \
