@@ -205,6 +205,44 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/lib/ste_omxcomponents/libst_omxredeye_corrector.so:system/lib/ste_omxcomponents/libst_omxredeye_corrector.so \
     $(LOCAL_PATH)/lib/ste_omxcomponents/libst_omxredeye_detector.so:system/lib/ste_omxcomponents/libst_omxredeye_detector \
     $(LOCAL_PATH)/lib/ste_omxcomponents/libst_omxsplitter.so:system/lib/ste_omxcomponents/libst_omxsplitter.so \
+    $(LOCAL_PATH)/lib/libspeech_processing.so:system/lib/libspeech_processing.so \
+    $(LOCAL_PATH)/lib/libste_alsasink.so:system/lib/libste_alsasink.so \
+    $(LOCAL_PATH)/lib/libste_alsasource.so:system/lib/libste_alsasource.so \
+    $(LOCAL_PATH)/lib/libste_audio_mixer.so:system/lib/libste_audio_mixer.so \
+    $(LOCAL_PATH)/lib/libste_audio_source_sink.so:system/lib/libste_audio_source_sink.so \
+    $(LOCAL_PATH)/lib/libste_comfort_noise.so:system/lib/libste_comfort_noise.so \
+    $(LOCAL_PATH)/lib/libste_cscall.so:system/lib/libste_cscall.so \
+    $(LOCAL_PATH)/lib/libste_dec_amr.so:system/lib/libste_dec_amr.so \
+    $(LOCAL_PATH)/lib/libste_dec_amrwb.so:system/lib/libste_dec_amrwb.so \
+    $(LOCAL_PATH)/lib/libste_dec_h264.so:system/lib/libste_dec_h264.so \
+    $(LOCAL_PATH)/lib/libste_dec_jpeg.so:system/lib/libste_dec_jpeg.so \
+    $(LOCAL_PATH)/lib/libste_dec_mpeg2.so:system/lib/libste_dec_mpeg2.so \
+    $(LOCAL_PATH)/lib/libste_dec_mpeg4.so:system/lib/libste_dec_mpeg4.so \
+    $(LOCAL_PATH)/lib/libste_dec_vc1.so:system/lib/libste_dec_vc1.so \
+    $(LOCAL_PATH)/lib/libste_drc.so:system/lib/libste_drc.so \
+    $(LOCAL_PATH)/lib/libste_enc_aac.so:system/lib/libste_enc_aac.so \
+    $(LOCAL_PATH)/lib/libste_enc_amr.so:system/lib/libste_enc_amr.so \
+    $(LOCAL_PATH)/lib/libste_enc_amrwb.so:system/lib/libste_enc_amrwb.so \
+    $(LOCAL_PATH)/lib/libste_enc_h264.so:system/lib/libste_enc_h264.so \
+    $(LOCAL_PATH)/lib/libste_enc_jpeg.so:system/lib/libste_enc_jpeg.so \
+    $(LOCAL_PATH)/lib/libste_enc_mpeg4.so:system/lib/libste_enc_mpeg4.so \
+    $(LOCAL_PATH)/lib/libste_exif_mixer.so:system/lib/libste_exif_mixer.so \
+    $(LOCAL_PATH)/lib/libste_ext_camera.so:system/lib/libste_ext_camera.so \
+    $(LOCAL_PATH)/lib/libste_mdrc.so:system/lib/libste_mdrc.so \
+    $(LOCAL_PATH)/lib/libste_noise_reduction.so:system/lib/libste_noise_reduction.so \
+    $(LOCAL_PATH)/lib/libste_pcm_splitter.so:system/lib/libste_pcm_splitter.so \
+    $(LOCAL_PATH)/lib/libste_speech_proc.so:system/lib/libste_speech_proc.so \
+    $(LOCAL_PATH)/lib/libste_spl.so:system/lib/libste_spl.so \
+    $(LOCAL_PATH)/lib/libste_teq.so:system/lib/libste_teq.so \
+    $(LOCAL_PATH)/lib/libste_tonegen.so:system/lib/libste_tonegen.so \
+    $(LOCAL_PATH)/lib/libste_val_src_sink.so:system/lib/libste_val_src_sink.so \
+    $(LOCAL_PATH)/lib/libste_virtual_surround.so:system/lib/libste_virtual_surround.so \
+    $(LOCAL_PATH)/lib/libst_omxarmivproc.so:system/lib/libst_omxarmivproc.so \
+    $(LOCAL_PATH)/lib/libst_omxface_detector.so:system/lib/libst_omxface_detector.so \
+    $(LOCAL_PATH)/lib/libst_omxnorcos.so:system/lib/libst_omxnorcos.so \
+    $(LOCAL_PATH)/lib/libst_omxredeye_corrector.so:system/lib/libst_omxredeye_corrector.so \
+    $(LOCAL_PATH)/lib/libst_omxredeye_detector.so:system/lib/libst_omxredeye_detector \
+    $(LOCAL_PATH)/lib/libst_omxsplitter.so:system/lib/libst_omxsplitter.so \
     $(LOCAL_PATH)/usr/share/nmf/repository/mmdsp_8500_v2/memgrabctl.elf4nmf:system/usr/share/nmf/repository/mmdsp_8500_v2/memgrabctl.elf4nmf \
     $(LOCAL_PATH)/usr/share/nmf/repository/mmdsp_8500_v2/_ev/postevent.elf4nmf:system/usr/share/nmf/repository/mmdsp_8500_v2/_ev/postevent.elf4nmf \
     $(LOCAL_PATH)/usr/share/nmf/repository/mmdsp_8500_v2/_ev/common/portstate.elf4nmf:system/usr/share/nmf/repository/mmdsp_8500_v2/_ev/common/portstate.elf4nmf \
