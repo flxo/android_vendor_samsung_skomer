@@ -142,11 +142,6 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/skomer/proprietary/etc/plmn.latam.list:system/etc/plmn.latam.list \
     vendor/samsung/skomer/proprietary/etc/plmn.operator.list:system/etc/plmn.operator.list
 
-# System modules
-PRODUCT_COPY_FILES += \
-    vendor/samsung/skomer/proprietary/lib/modules/param.ko:system/lib/modules/param.ko \
-    vendor/samsung/skomer/proprietary/lib/modules/j4fs.ko:system/lib/modules/j4fs.ko
-
 # OMX
 PRODUCT_COPY_FILES += \
     vendor/samsung/skomer/proprietary/lib/libnmftimer.so:system/lib/libnmftimer.so \
