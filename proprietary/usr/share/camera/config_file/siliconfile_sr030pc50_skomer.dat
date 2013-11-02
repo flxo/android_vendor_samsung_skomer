@@ -915,9 +915,9 @@ b9 15 $f
 03 14 $f 
 10 01 $f 
 
-22 58 $f  //58 
-23 42 $f  //42 
-24 3c $f  //3c 
+22 44 $f  //58 
+23 34 $f  //42 
+24 32 $f  //3c 
 
 27 80 $f  //RXCEN //9094
 28 80 $f  //RYCEN //7850
@@ -956,15 +956,15 @@ b9 15 $f
 03 16 $f
 10 01 $f
 30 00 $f
-31 0f $f
-32 20 $f
-33 35 $f
-34 58 $f
-35 75 $f
-36 8e $f
-37 a3 $f
-38 b4 $f
-39 c3 $f
+31 0d $f
+32 1b $f
+33 2d $f
+34 4e $f
+35 6f $f
+36 86 $f
+37 9d $f
+38 af $f
+39 c0 $f
 3a cf $f
 3b e2 $f
 3c f0 $f
@@ -1046,7 +1046,7 @@ a2 40 $f
 
 b0 1d $f
 b1 14 $f //14
-b2 a0 $f //80
+b2 90 $f //80
 b3 17 $f //AGLVL //17
 b4 17 $f
 b5 3e $f
@@ -1085,15 +1085,15 @@ c4 48 $f
 
 80 3d $f
 81 20 $f
-82 40 $f
+82 49 $f
 
 83 5a $f //RMAX 5a
 84 20 $f //RMIN 1e
-85 53 $f //BMAX 5a
+85 56 $f //BMAX 5a
 86 24 $f //BMIN 
 
-87 4a $f //42
-88 3c $f
+87 48 $f //42
+88 3a $f
 89 3e $f
 8a 34 $f
 
@@ -1175,6 +1175,8 @@ seq_ping =
 
   $"[SR030PC50] >> CAMDRIVER::seq_ping" 
   #GET_REG(00,04) // read SR030PC50 Device ID number.
+  $"[SR030PC50] << 20121023"
+  $gf 00  //flash off
   $"[SR030PC50] << CAMDRIVER::seq_ping"
 ;
 
@@ -1430,7 +1432,7 @@ a2 a0 $f  //
 10 9c $f  //
 
 01 70 $f  //
-$d0096
+$d0064
 $"[SR030PC50] << REG_FIXED_15FPS_VGA"
 ;
 

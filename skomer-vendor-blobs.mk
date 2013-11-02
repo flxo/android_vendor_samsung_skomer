@@ -17,7 +17,7 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/skomer/proprietary/lib/hw/camera.montblanc.so:system/lib/hw/camera.montblanc.so \
     vendor/samsung/skomer/proprietary/usr/share/camera/config_file/aptina_mt9v113.dat:system/usr/share/camera/config_file/aptina_mt9v113.dat \
     vendor/samsung/skomer/proprietary/usr/share/camera/config_file/sony_isx012_skomer.dat:system/usr/share/camera/config_file/sony_isx012_skomer.dat \
-    vendor/samsung/skomer/proprietary/usr/share/camera/config_file/siliconfile_sr030pc50.dat:system/usr/share/camera/config_file/siliconfile_sr030pc50.dat
+    vendor/samsung/skomer/proprietary/usr/share/camera/config_file/siliconfile_sr030pc50_skomer.dat:system/usr/share/camera/config_file/siliconfile_sr030pc50_skomer.dat
 
 # Mali-400
 PRODUCT_COPY_FILES += \
