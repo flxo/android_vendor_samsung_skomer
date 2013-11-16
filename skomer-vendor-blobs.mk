@@ -132,7 +132,8 @@ PRODUCT_COPY_FILES += \
     vendor/samsung/skomer/proprietary/lib/libstelpcutils.so:system/lib/libstelpcutils.so \
     vendor/samsung/skomer/proprietary/lib/libsterc.so:system/lib/libsterc.so \
     vendor/samsung/skomer/proprietary/lib/libtee.so:system/lib/libtee.so \
-    vendor/samsung/skomer/proprietary/lib/libtrace.so:system/lib/libtrace.so
+    vendor/samsung/skomer/proprietary/lib/libtrace.so:system/lib/libtrace.so \
+    vendor/samsung/skomer/proprietary/lib/libemoji.so:system/lib/libemoji.so
 
 # System STE Configs
 PRODUCT_COPY_FILES += \
